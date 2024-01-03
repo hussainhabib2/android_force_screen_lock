@@ -48,43 +48,4 @@ public class MainActivity extends AppCompatActivity {
         }
         finish();
     }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == 1) {
-//            if (resultCode == RESULT_OK) {
-//                Log.d("LockScreenButton", "Device admin privileges granted");
-//            } else {
-//                Log.d("LockScreenButton", "Device admin privileges denied");
-//            }
-//        }
-//    }
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-//        componentName = new ComponentName(this, DeviceAdminReceiver.class);
-//
-//        Button lockScreenButton = findViewById(R.id.lockScreenButton);
-//        lockScreenButton.setOnClickListener(view -> lockScreen());
-//    }
-
-    private void lockScreen() {
-        if (devicePolicyManager.isAdminActive(componentName)) {
-            // If the app has device admin privileges, lock the screen
-            Log.d("LockScreenButton", "Screen locked successfully");
-            devicePolicyManager.lockNow();
-        } else {
-            Log.d("LockScreenButton", "Requesting device admin privileges");
-            Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName);
-            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Please enable device admin for screen locking.");
-            startActivityForResult(intent, 1);
-        }
-    }
 }
