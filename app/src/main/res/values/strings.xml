@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ForceLock</string>
+    <string name="device_admin">Device admin</string>
+    <string name="device_admin_description">Device desc</string>
+</resources>
